@@ -15,6 +15,9 @@ let bodyColors = [
     "#ff4f51",
     "#904ae8",
     "#ffa711",
+    "cyan",
+    "purple",
+    "magenta",
 ];
 let colors = [...bodyColors, 'transparent']
 console.log(colors);
