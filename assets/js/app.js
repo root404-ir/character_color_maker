@@ -5,6 +5,9 @@ const face_btn = $.querySelector('#face-btn')
 const color_btn = $.querySelector('#color-btn')
 const horns_btn = $.querySelector('#horns-btn')
 const tail_btn = $.querySelector('#tail-btn')
+
+const cssRoot = $.querySelector(':root')
+
 let bodyColors = [
     "#a8d530",
     "#42aaff",
@@ -16,25 +19,25 @@ let bodyColors = [
 let colors = [...bodyColors, 'transparent']
 console.log(colors);
 
-let [faceCounter, colorCounter, hotnsCounter, tailCounter] = Array(4).fill(0)
+let [faceCounter, colorCounter, hornsCounter, tailCounter] = Array(4).fill(0)
 
 const setCounter = (counter, length) => {
     return counter < length - 1 ? counter + 1 : 0
 }
 face_btn.addEventListener('click', () => {
     faceCounter = setCounter(faceCounter, 6)
-    console.log(faceCounter);
-
     $.getElementById('face').setAttribute('src', `./assets/images/face-${faceCounter}.png`)
 })
 color_btn.addEventListener('click', () => {
-    console.log('color')
-
+    colorCounter = setCounter(colorCounter, bodyColors.length)
+    console.log(colorCounter)
+    cssRoot.style.setProperty('--color-character', bodyColors[colorCounter])
 })
 horns_btn.addEventListener('click', () => {
-    console.log('horns')
-
+    hornsCounter = setCounter(hornsCounter, bodyColors.length)
+    cssRoot.style.setProperty('--color-horns', bodyColors[hornsCounter])
 })
 tail_btn.addEventListener('click', () => {
-    console.log('tail')
+    tailCounter = setCounter(tailCounter, bodyColors.length)
+    cssRoot.style.setProperty('--color-tail', bodyColors[tailCounter])
 })
